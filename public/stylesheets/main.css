@@ -1,0 +1,75 @@
+header {
+    background-color: blue;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
+h1 {
+    margin-left: 1em;
+    color: white;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+form {
+    margin-top: 4em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+
+form input,
+select,
+button {
+    width: 100%;
+    font-size: 1.3em;
+    margin-bottom: 1em;
+}
+
+form {
+    border: 2px black solid;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    border-radius: 5px;
+    padding-top: 1.5em;
+    background-color: gray;
+}
+
+hr {
+    margin-bottom: 2em;
+}
+
+section {
+    background-color: blue;
+    border: 2px black solid;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    border-radius: 5px;
+    padding-top: 1.5em;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4em;
+}
+
+section h1 {
+    margin-left: 0;
+}
+
+section p {
+    background-color: white;
+    padding: 1em;
+}
+
+span {
+    color: darkred;
+    font-size: 2em;
+}
+
+b {
+    font-size: 1.8em;
+}

@@ -5,13 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/main.css" />
+    <title>Postal Rate</title>
 </head>
 
 <body>
-    <h1>Total Postage:
-        <%= price %>
-    </h1>
+    <section>
+        <h1>Total Postage</h1>
+        <hr>
+        <p><span>Total:</span> <b>$
+            <% if(price != 0.00) { %>
+                <%= price %>
+                    <% }else{ %>
+                        <%= message %>
+                            <% } %>
+                        </b></p>
+    </section>
 </body>
 
 </html>

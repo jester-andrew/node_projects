@@ -16,8 +16,8 @@ function doMath(req, res) {
     let weight = req.query.weight;
     let serviceId = req.query.service;
     let basePrice;
-    let rate;
-    let message;
+    let rate = 0;
+    let message = '';
     let validWeight = true;
 
     if (serviceId == 1) {
@@ -90,9 +90,9 @@ function doMath(req, res) {
 
                 rate = basePrice + 1.65;
 
-            } else if (weight > 13 && weight <= 13) {
+            } else if (weight > 12 && weight <= 13) {
 
-                rate = basePrice + 1.85;
+                rate = basePrice + 1.80;
 
             }
         } else {
@@ -107,10 +107,10 @@ function doMath(req, res) {
             }
         }
     } else {
-        rate = "Sorry that is not a valide Weight for this service.";
+        message = "Sorry that is not a valide Weight for this service.";
     }
 
-    let params = { price: rate.toFixed(2) };
+    let params = { price: rate.toFixed(2), message: message };
     res.render("pages/output", params);
     res.end();
 }

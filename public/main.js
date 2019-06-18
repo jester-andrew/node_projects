@@ -16,3 +16,19 @@ function getRquest(url) {
     xhttp.open("GET", url, true);
     xhttp.send();
 }
+
+function displayWeightLimits() {
+    let option = document.getElementById("service").value;
+    let weightField = document.getElementById('weight');
+    console.log(option);
+    let message = "";
+    if (option == 1 || option == 2) {
+        message = "Weight should not exceed 3.5oz";
+        weightField.setAttribute("max", 3.5);
+    } else {
+        message = "Weight should not exceed 13oz";
+        weightField.setAttribute("max", 13);
+    }
+
+    document.getElementById('message').innerHTML = message;
+}
