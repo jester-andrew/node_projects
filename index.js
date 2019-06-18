@@ -7,10 +7,10 @@ express()
     .set('views', path.join(__dirname, 'views'))
     .set('view engine', 'ejs')
     .get('/', (req, res) => res.render('pages/index'))
-    .get('/math', doMath)
+    .get('/getRate', getRate)
     .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
-function doMath(req, res) {
+function getRate(req, res) {
     console.log('doing some math!');
 
     let weight = req.query.weight;
