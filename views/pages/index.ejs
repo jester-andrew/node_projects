@@ -11,24 +11,9 @@
 
 <body>
     <header>
-        <h1>Postage Calculator</h1>
+        <h1>Home Page</h1>
     </header>
-    <form action="/getRate" method="get">
-        <h2>First Class Mail</h2>
 
-        <hr>
-        <p id="message"></p>
-        <select name="service" id="service" onchange="displayWeightLimits()" required>
-            <option value="" disabled selected>Pick a Service</option>
-            <option value="1" >Letters (Stamped)</option>
-            <option value="2" >Letters (Metered)</option>
-            <option value="3" >Large Envelopes (Flats)</option>
-            <option value="4" >First-Class Package Service—Retail</option>
-        </select><br>
-        <input type="number" id="weight" name="weight" placeholder="Weight in OZ" step=".1" min="0" required><br>
-        <button type="submit">Get Rate</button>
-    </form>
-    <script src="main.js"></script>
 </body>
 
 </html>

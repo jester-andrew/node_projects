@@ -1,7 +1,8 @@
+//imports
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
-
+    //server 
 express()
     .use(express.static(path.join(__dirname, 'public')))
     .set('views', path.join(__dirname, 'views'))
@@ -10,11 +11,42 @@ express()
     .get('/getRate', getRate)
     .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
+console.log("listening on port: " + PORT);
+
+//Endpoint
+/**
+ * This is the callback function for the /getRate url.
+ * 
+ * @param {request} req 
+ * @param {response} res 
+ */
 function getRate(req, res) {
     console.log('doing some math!');
 
     let weight = req.query.weight;
     let serviceId = req.query.service;
+    let rate = calculatePrice(weight, serviceId);
+    let params;
+
+    if (typeof rate == "number") {
+        params = { price: rate.toFixed(2) };
+    } else {
+        params = { price: 0.00, message: rate };
+    }
+    res.render("pages/output", params);
+    res.end();
+}
+
+
+//model
+/**
+ * This function calculates the price of the mail from the 
+ * weight and service chosen.
+ * 
+ * @param  weight 
+ * @param  serviceId 
+ */
+function calculatePrice(weight, serviceId) {
     let basePrice;
     let rate = 0;
     let message = '';
@@ -110,9 +142,5 @@ function getRate(req, res) {
         message = "Sorry that is not a valide Weight for this service.";
     }
 
-    let params = { price: rate.toFixed(2), message: message };
-    res.render("pages/output", params);
-    res.end();
+    return (rate > 0) ? rate : message;
 }
-
-console.log("listening on port: " + PORT);
